@@ -74,7 +74,7 @@ jobs:
           channel: '#darktable'
           nickname: darktable-commit-notifier
           message: |-
-            Showing last ${{ steps.gitlog.outputs.llc }} commit(s) to ${{ github.repository }}:
+            Showing last ${{ steps.gitlog.outputs.llc }} commit(s) to darktable-org/darktable:
             ${{ steps.gitlog.outputs.log }}
       - uses: actions/upload-artifact@v7
         with:
