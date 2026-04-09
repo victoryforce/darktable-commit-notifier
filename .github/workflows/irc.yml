@@ -51,9 +51,9 @@ jobs:
             echo "";
             echo "setting output..."
             output="$(cat ../log)"
-            output="${output//'%'/'%25'}"
-            output="${output//$'\n'/'%0A'}"
-            output="${output//$'\r'/'%0D'}"
+            # output="${output//'%'/'%25'}"
+            # output="${output//$'\n'/'%0A'}"
+            # output="${output//$'\r'/'%0D'}"
             echo "log=$output" >> $GITHUB_OUTPUT
             echo ""
             echo "" >> ../log
