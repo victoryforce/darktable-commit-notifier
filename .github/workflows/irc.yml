@@ -51,10 +51,7 @@ jobs:
             echo "";
             echo "setting output..."
             output="$(cat ../log)"
-            # output="${output//'%'/'%25'}"
-            # output="${output//$'\n'/'%0A'}"
-            # output="${output//$'\r'/'%0D'}"
-            echo "log=$output" >> $GITHUB_OUTPUT
+            echo "log<<EOF"$'\n'"$output"$'\n'EOF >> "$GITHUB_OUTPUT"
             echo ""
             echo "" >> ../log
             echo "llc=$(wc -l < ../log)" >> $GITHUB_OUTPUT
@@ -72,7 +69,7 @@ jobs:
         with:
           server: "irc.oftc.net"
           channel: '#darktable'
-          nickname: darktable-commit-notifier
+          nickname: dt-commit-notifier
           message: |-
             Showing last ${{ steps.gitlog.outputs.llc }} commit(s) to darktable-org/darktable:
             ${{ steps.gitlog.outputs.log }}
