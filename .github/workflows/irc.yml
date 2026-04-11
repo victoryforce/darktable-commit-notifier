@@ -70,6 +70,11 @@ jobs:
           server: "irc.oftc.net"
           channel: '#darktable'
           nickname: dt-commit-notifier
+          # We want to use a timeout just to avoid interrupting
+          # the bot's messages with a bot disconnect notification.
+          # We don't actually expect or process any response.
+          response_allow_from: victoryforce[m]
+          response_timeout: 5
           message: |-
             Showing last ${{ steps.gitlog.outputs.llc }} commit(s) to darktable-org/darktable:
             ${{ steps.gitlog.outputs.log }}
