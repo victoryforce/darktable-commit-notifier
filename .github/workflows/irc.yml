@@ -16,8 +16,8 @@ jobs:
           repository: 'darktable-org/darktable'
           # We don't need to get all the commits, just more than
           # can realistically be added to the repository between
-          # two notifier runs. 200 seems like a reasonable value.
-          fetch-depth: 200
+          # two notifier runs. 100 seems like a reasonable value.
+          fetch-depth: 100
           path: src
       - uses: dawidd6/action-download-artifact@v19
         continue-on-error: true
