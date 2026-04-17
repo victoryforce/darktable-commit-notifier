@@ -58,11 +58,6 @@ jobs:
           fi;
           cd ..
           mv -f current_commit recent_commit
-      - name: Test print of content to be sent to IRC
-        if: ${{ steps.gitlog.outputs.log != '' }}
-        run: |
-          echo  "${{ steps.gitlog.outputs.log }}" > ../text-to-be-send
-          cat ../text-to-be-send
       - name: IRC notification
         if: ${{ steps.gitlog.outputs.log != '' }}
         uses: Gottox/irc-message-action@main
